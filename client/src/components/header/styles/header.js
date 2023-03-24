@@ -7,9 +7,9 @@ export const Item = styled.div`
   align-items: center;
   min-height: 60px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1536px;
   margin: 0 auto;
-  background-color: white;
+  background-color: transparent;
 `;
 
 export const Group = styled.div`
