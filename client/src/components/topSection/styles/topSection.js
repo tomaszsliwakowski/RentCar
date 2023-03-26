@@ -2,7 +2,7 @@ import styled from "styled-components/macro";
 
 export const Item = styled.div`
   min-height: 400px;
-  margin-top: 6em;
+  margin-top: 3em;
   display: flex;
   padding-right: 20px;
   padding-left: 20px;
@@ -11,6 +11,9 @@ export const Item = styled.div`
   max-width: 1536px;
   margin-left: auto;
   margin-right: auto;
+  @media (min-width: 640px) {
+    margin-top: 5rem;
+  }
   @media (min-width: 1024px) {
     padding-right: 3rem;
   }
@@ -19,6 +22,8 @@ export const LeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 50%;
+  position: relative;
+  top: -1em;
 `;
 export const Slogan = styled.h1`
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
@@ -71,17 +76,29 @@ export const RightContainer = styled.div`
   width: 50%;
 `;
 export const BlobContainer = styled.div`
-  width: 20em;
-  height: 10em;
+  width: 25em;
+  height: 12em;
   position: absolute;
-  right: -5em;
-  top: -9em;
+  right: -6em;
+  top: -12em;
   z-index: -1;
   transform: rotate(-30deg);
   img {
     width: 100%;
     height: auto;
     max-height: max-content;
+  }
+  @media (min-width: 350px) {
+    width: 20em;
+    height: 10em;
+    right: -5em;
+    top: -9em;
+  }
+  @media (min-width: 400px) {
+    width: 28em;
+    height: 10em;
+    right: -4em;
+    top: -11em;
   }
   @media (min-width: 640px) {
     width: 40em;
@@ -109,13 +126,24 @@ export const BlobContainer = styled.div`
 export const StandCar = styled.div`
   width: auto;
   height: 10em;
-  right: -6em;
-  top: -5em;
+  right: -7em;
+  top: -7em;
   position: absolute;
   img {
     width: auto;
     height: 100%;
     max-width: fit-content;
+  }
+  @media (min-width: 350px) {
+    width: auto;
+    height: 10em;
+    right: -6em;
+    top: -5em;
+  }
+  @media (min-width: 400px) {
+    height: 10em;
+    right: -4em;
+    top: -5em;
   }
   @media (min-width: 640px) {
     height: 16em;
@@ -144,12 +172,13 @@ export const BaseButton = styled.button`
   width: 12em;
   height: 3.5em;
   border-radius: 0.7em;
-  font-weight: bold;
   background-color: #ef4444;
   color: white;
   border: none;
-  transition: all 0.3s;
+  transition: all 0.5s;
+  font-weight: bold;
   &:hover {
-    transform: scale(1.02);
+    opacity: 0.9;
+    box-shadow: 0 0 15px #ef4444;
   }
 `;

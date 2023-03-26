@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import { Link as LinkRouter } from "react-router-dom";
+import { NavLink as LinkRouter } from "react-router-dom";
 
 export const Item = styled.div`
   display: flex;
@@ -48,6 +48,12 @@ export const Link = styled(LinkRouter)`
   color: black;
   font-weight: bold;
   cursor: pointer;
+  &.active {
+    color: #ef4444;
+  }
+  &:hover {
+    opacity: 0.7;
+  }
   @media screen and (max-width: 400px) {
     font-size: 14px;
   }
