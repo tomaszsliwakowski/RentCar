@@ -38,6 +38,9 @@ export const LogoText = styled(LinkRouter)`
   font-weight: bold;
   cursor: pointer;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  &:hover {
+    opacity: 0.7;
+  }
   @media screen and (max-width: 400px) {
     font-size: 15px;
   }

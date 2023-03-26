@@ -19,6 +19,9 @@ export const CardContainer = styled.div`
     padding: 1em;
     margin: 0 auto;
   }
+  @media (min-width: 768px) {
+    margin: 5em auto;
+  }
 `;
 
 export const ItemContainer = styled.div`
