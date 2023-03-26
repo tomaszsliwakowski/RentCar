@@ -11,6 +11,7 @@ export const Item = styled.div`
   max-width: 1536px;
   margin-left: auto;
   margin-right: auto;
+
   @media (min-width: 640px) {
     margin-top: 5rem;
   }

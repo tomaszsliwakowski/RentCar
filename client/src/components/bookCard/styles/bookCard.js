@@ -4,7 +4,7 @@ import Calendar from "react-calendar";
 export const CardContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: 0.5em 1em;
+  padding: 0.8em 1em;
   background-color: #ffffff;
   justify-content: center;
   align-items: center;
@@ -18,6 +18,7 @@ export const CardContainer = styled.div`
     gap: 10px;
     padding: 1em;
     margin: 0 auto;
+    margin-bottom: 5em;
   }
   @media (min-width: 768px) {
     margin: 5em auto;
