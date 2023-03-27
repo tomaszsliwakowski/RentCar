@@ -13,10 +13,11 @@ export const Item = styled.div`
   margin-right: auto;
 
   @media (min-width: 640px) {
-    margin-top: 5rem;
+    margin-top: 8rem;
   }
   @media (min-width: 1024px) {
     padding-right: 3rem;
+    margin-top: 5rem;
   }
 `;
 export const LeftContainer = styled.div`

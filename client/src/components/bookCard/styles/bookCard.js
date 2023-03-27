@@ -17,11 +17,10 @@ export const CardContainer = styled.div`
     flex-direction: column;
     gap: 10px;
     padding: 1em;
-    margin: 0 auto;
     margin-bottom: 5em;
   }
-  @media (min-width: 768px) {
-    margin: 5em auto;
+  @media (min-width: 640px) {
+    margin: 9em auto;
   }
 `;
 

@@ -3,6 +3,7 @@ import HeaderContainer from "../components/header/header";
 import TopSectionContainer from "../components/topSection/topSection";
 import BookCardContainer from "../components/bookCard/bookCard";
 import BookingStepsContainer from "../components/BookingSteps/bookingSteps";
+import AboutUsContainer from "../components/aboutUs/aboutUs";
 
 export default function HomePage() {
   return (
@@ -11,6 +12,7 @@ export default function HomePage() {
       <TopSectionContainer />
       <BookCardContainer />
       <BookingStepsContainer />
+      <AboutUsContainer />
     </>
   );
 }
