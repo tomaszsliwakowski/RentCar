@@ -5,6 +5,7 @@ import BookCardContainer from "../components/bookCard/bookCard";
 import BookingStepsContainer from "../components/BookingSteps/bookingSteps";
 import AboutUsContainer from "../components/aboutUs/aboutUs";
 import TopCarsContainer from "../components/topCars/topCars";
+import FooterContainer from "../components/footer/footer";
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
       <BookingStepsContainer />
       <AboutUsContainer />
       <TopCarsContainer />
+      <FooterContainer />
     </>
   );
 }

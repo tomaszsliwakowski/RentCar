@@ -21,10 +21,10 @@ export default function TopSectionContainer() {
       </TopSection.LeftContainer>
       <TopSection.RightContainer>
         <TopSection.BlobContainer>
-          <img src={BlobImg} />
+          <img src={BlobImg} alt="blob" />
         </TopSection.BlobContainer>
         <TopSection.StandCar>
-          <img src={MclarenCarImg} />
+          <img src={MclarenCarImg} alt="Mclaren" />
         </TopSection.StandCar>
       </TopSection.RightContainer>
     </TopSection>
