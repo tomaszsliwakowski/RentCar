@@ -9,7 +9,7 @@ import CarLogoDarkImg from "../../assets/car-logo-dark.png";
 
 export default function FooterContainer() {
   return (
-    <Footer>
+    <Footer id="footer">
       <Footer.InnerContainer>
         <Footer.AboutContainer>
           <LogoCon color="white" bgColor="dark" />

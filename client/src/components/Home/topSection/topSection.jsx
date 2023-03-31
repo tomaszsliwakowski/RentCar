@@ -1,6 +1,6 @@
 import React from "react";
-import MclarenCarImg from "../../assets/mclaren-orange-big.png";
-import BlobImg from "../../assets/blob.svg";
+import MclarenCarImg from "../../../assets/mclaren-orange-big.png";
+import BlobImg from "../../../assets/blob.svg";
 import TopSection from "./index";
 
 export default function TopSectionContainer() {

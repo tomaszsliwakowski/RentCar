@@ -12,7 +12,7 @@ export default function HeaderContainer() {
       <Header.Group>
         <Header.Link to={ROUTES.Home}>Home</Header.Link>
         <Header.Link to={ROUTES.Cars}>Cars</Header.Link>
-        <Header.Link to={ROUTES.Contact}>Contact Us</Header.Link>
+        <Header.LinkContact href="#footer">Contact Us</Header.LinkContact>
       </Header.Group>
     </Header>
   );

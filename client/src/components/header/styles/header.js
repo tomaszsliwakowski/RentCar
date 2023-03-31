@@ -64,3 +64,22 @@ export const Link = styled(LinkRouter)`
     font-size: 12px;
   }
 `;
+
+export const Contact = styled.a`
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  &.active {
+    color: #ef4444;
+  }
+  &:hover {
+    opacity: 0.7;
+  }
+  @media screen and (max-width: 400px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 300px) {
+    font-size: 12px;
+  }
+`;

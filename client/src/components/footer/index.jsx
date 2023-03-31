@@ -18,8 +18,8 @@ import {
   LogoText,
 } from "./styles/footer";
 
-export function Footer({ children }) {
-  return <Container>{children}</Container>;
+export function Footer({ children, ...restprops }) {
+  return <Container {...restprops}>{children}</Container>;
 }
 
 Footer.InnerContainer = function FooterInnerContainer({ children }) {

@@ -36,6 +36,7 @@ export const Bottom = styled.div`
 export const CopyrightText = styled.small`
   font-size: 12px;
   color: #d1d5db;
+  padding: 0 10px;
 `;
 export const About = styled.div`
   display: flex;

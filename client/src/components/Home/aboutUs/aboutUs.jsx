@@ -1,6 +1,6 @@
 import React from "react";
 import AboutUs from "./index";
-import JeepImg from "../../assets/jeep.png";
+import JeepImg from "../../../assets/jeep.png";
 
 export default function AboutUsContainer() {
   return (
