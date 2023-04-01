@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSortDown,
@@ -8,7 +8,7 @@ import {
 import "react-calendar/dist/Calendar.css";
 import BookCard from "../../Home/bookCard";
 
-export default function MainBook() {
+export default function MainBook({setBookDate}) {
   const [startDate, setStartDate] = useState(new Date());
   const [isStartCalendarOpen, setStartCalendarOpen] = useState(false);
   const [returnDate, setReturnDate] = useState(new Date());
@@ -23,6 +23,8 @@ export default function MainBook() {
     setReturnCalendarOpen(!isReturnCalendarOpen);
     if (isStartCalendarOpen) setStartCalendarOpen(false);
   };
+
+  useEffect(()=>{setBookDate({start:startDate,return:returnDate})},[startDate,returnDate])
 
   return (
     <>

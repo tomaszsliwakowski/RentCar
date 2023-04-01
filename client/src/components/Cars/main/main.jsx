@@ -11,20 +11,29 @@ import MainBook from "./book";
 
 export default function MainContainer() {
   const [activeSelect, setActiveSelect] = useState(false);
-  return (
+  const [BookDate,setBookDate] = useState({})
+ const [searchCar,setSearchCar]=useState("")
+ const [priceCar,setPriceCar] = useState("")
+ 
+const SelectSortPrice = (opt)=> {
+  setPriceCar(opt)
+  setActiveSelect(false)
+}
+
+ return (
     <Main>
       <Panel>
         <Panel.SearchContainer>
           <Panel.Search>
             <FontAwesomeIcon icon={faSearch} />
-            <Panel.SearchInput type="text" placeholder="Search..." />
+            <Panel.SearchInput type="text" placeholder="Search..." value={searchCar} onChange={(e)=>setSearchCar(e.target.value)} />
           </Panel.Search>
         </Panel.SearchContainer>
         <Panel.DateContainer>
-          <MainBook />
+          <MainBook setBookDate={setBookDate} />
         </Panel.DateContainer>
         <Panel.PriceContainer>
-          <Panel.Select activeSelect>
+          <Panel.Select activeSelect >
             <Panel.OptionsBtn
               type="checkbox"
               checked={activeSelect}
@@ -41,11 +50,11 @@ export default function MainContainer() {
             </Panel.SelectBtn>
             {activeSelect ? (
               <Panel.Options>
-                <Panel.Option>
+                <Panel.Option onClick={()=>SelectSortPrice("Highest")}>
                   <FontAwesomeIcon icon={faDollarSign} />
                   <Panel.Text>Highest</Panel.Text>
                 </Panel.Option>
-                <Panel.Option>
+                <Panel.Option onClick={()=>SelectSortPrice("Lowest")}>
                   <FontAwesomeIcon icon={faDollarSign} />
                   <Panel.Text>Lowest</Panel.Text>
                 </Panel.Option>
