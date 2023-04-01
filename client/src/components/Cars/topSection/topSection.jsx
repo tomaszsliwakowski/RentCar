@@ -6,10 +6,14 @@ export default function CarsTopSection() {
   return (
     <TopSection>
       <TopSection.LeftSite>
-        <TopSection.Slogan>Choose and rent your favorite car</TopSection.Slogan>
+        <TopSection.Slogan>
+          Choose And Rent Your Favorite Car With Us
+        </TopSection.Slogan>
       </TopSection.LeftSite>
       <TopSection.RightSite>
-        <img src={CarIMG} alt="Porsche" />
+        <TopSection.StandCar>
+          <img src={CarIMG} alt="Porsche" />
+        </TopSection.StandCar>
       </TopSection.RightSite>
     </TopSection>
   );

@@ -14,9 +14,8 @@ export default function FooterContainer() {
         <Footer.AboutContainer>
           <LogoCon color="white" bgColor="dark" />
           <Footer.AboutText>
-            Yourcar is a Car renting and selling company located in many
-            countries across the world which has high quality cars and top rated
-            service.
+            Yourcar is a Car renting company located in many countries across
+            the world which has high quality cars and top rated service.
           </Footer.AboutText>
         </Footer.AboutContainer>
         <Footer.SectionContainer>
@@ -26,10 +25,10 @@ export default function FooterContainer() {
               <Link to={ROUTES.Home}>Home</Link>
             </Footer.ListItem>
             <Footer.ListItem>
-              <Link to={ROUTES.Home}>About Us</Link>
+              <Link to={ROUTES.Home}>Contact Us</Link>
             </Footer.ListItem>
             <Footer.ListItem>
-              <Link to={ROUTES.Cars}>Models</Link>
+              <Link to={ROUTES.Cars}>Cars</Link>
             </Footer.ListItem>
           </Footer.LinksList>
         </Footer.SectionContainer>
