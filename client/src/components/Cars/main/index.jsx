@@ -38,8 +38,11 @@ Panel.DateContainer = function PanelSearchDateContainer({ children }) {
   return <DateContainer>{children}</DateContainer>;
 };
 
-Panel.PriceContainer = function PanelPriceContainer({ children }) {
-  return <PriceContainer>{children}</PriceContainer>;
+Panel.PriceContainer = function PanelPriceContainer({
+  children,
+  ...restprops
+}) {
+  return <PriceContainer {...restprops}>{children}</PriceContainer>;
 };
 
 Panel.Search = function PanelSearch({ children }) {
@@ -66,8 +69,8 @@ Panel.SelectedValue = function PanelSelectedValue({ children }) {
   return <SelectValue>{children}</SelectValue>;
 };
 
-Panel.Text = function PanelText({ children }) {
-  return <Text>{children}</Text>;
+Panel.Text = function PanelText({ children, ...restprops }) {
+  return <Text {...restprops}>{children}</Text>;
 };
 Panel.Icon = function PanelIcon({ children }) {
   return <Icon>{children}</Icon>;
@@ -75,6 +78,6 @@ Panel.Icon = function PanelIcon({ children }) {
 Panel.Options = function PanelOptions({ children, ...restprops }) {
   return <Options {...restprops}>{children}</Options>;
 };
-Panel.Option = function PanelOption({ children }) {
-  return <Option>{children}</Option>;
+Panel.Option = function PanelOption({ children, ...restprops }) {
+  return <Option {...restprops}>{children}</Option>;
 };

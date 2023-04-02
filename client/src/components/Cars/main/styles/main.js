@@ -26,6 +26,11 @@ export const PanelContainer = styled.div`
   margin-top: 1.5rem;
   z-index: 12;
   box-shadow: 0 0 15px silver;
+  flex-wrap: wrap;
+  @media (max-width: 1000px) {
+    padding: 20px 0;
+    justify-content: center;
+  }
 `;
 export const Section = styled.div`
   display: flex;
@@ -47,6 +52,9 @@ export const SearchContainer = styled.div`
   justify-content: center;
   align-items: center;
   max-height: 64px;
+  min-width: 250px;
+  max-width: 300px;
+  margin-left: 20px;
 `;
 export const DateContainer = styled.div`
   background-color: white;
@@ -56,6 +64,9 @@ export const DateContainer = styled.div`
   justify-content: center;
   align-items: center;
   max-height: 64px;
+  min-width: 250px;
+  max-width: 300px;
+  z-index: 22;
 `;
 export const PriceContainer = styled.div`
   padding-left: 2rem;
@@ -65,11 +76,13 @@ export const PriceContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   max-height: 64px;
+  min-width: 250px;
+  max-width: 250px;
 `;
 
 export const Search = styled.div`
   background-color: white;
-  border: 1px solid #ef4444;
+  border: 1px solid silver;
   padding: 0px 10px;
   height: 30px;
   border-radius: 1em;
@@ -89,15 +102,14 @@ export const SearchInput = styled.input`
   background-color: transparent;
   outline: none;
   color: black;
-  font-weight: bold;
   &::placeholder {
-    color: #ef4444;
+    color: black;
   }
 `;
 
 export const Select = styled.div`
-  width: 50%;
-  height: 45%;
+  width: 100%;
+  height: 30px;
   max-width: 180px;
   background-color: white;
   border-radius: 1rem;
@@ -105,8 +117,8 @@ export const Select = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 5px 0;
-  box-shadow: 0 0 15px silver;
+  padding: 0px 0;
+  border: 1px solid silver;
 `;
 export const OptionsInput = styled.input`
   position: absolute;
@@ -132,22 +144,31 @@ export const SelectBtn = styled.div`
   padding: 0 15px;
 `;
 export const SelectValue = styled.div``;
-export const Text = styled.div``;
+export const Text = styled.div`
+  font-size: 16px;
+  & svg {
+    margin-right: 5px;
+  }
+`;
 export const Icon = styled.div`
   display: flex;
   flex-direction: column;
+  font-size: 12px;
+  & svg {
+    color: #ef4444;
+  }
 `;
 export const Options = styled.div`
   position: absolute;
   background-color: white;
-  top: 2.6rem;
+  top: 2.2rem;
   width: 100%;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  box-shadow: 0 0 15px silver;
+  border: 1px solid silver;
 `;
 export const Option = styled.div`
   display: flex;
@@ -159,7 +180,12 @@ export const Option = styled.div`
   cursor: pointer;
   & svg {
     padding-left: 20px;
+    color: green;
   }
+  &:first-child svg {
+    color: red;
+  }
+
   &:hover {
     background-color: silver;
     border-radius: 1rem;
