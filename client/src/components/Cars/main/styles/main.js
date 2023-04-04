@@ -40,9 +40,10 @@ export const Section = styled.div`
   max-width: 1536px;
   margin-left: auto;
   margin-right: auto;
-  background-color: lightgreen;
-  min-height: 50vh;
+  background-color: white;
   margin-bottom: 4rem;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export const SearchContainer = styled.div`
@@ -54,7 +55,9 @@ export const SearchContainer = styled.div`
   max-height: 64px;
   min-width: 250px;
   max-width: 300px;
-  margin-left: 20px;
+  @media (min-width: 520px) {
+    margin-left: 20px;
+  }
 `;
 export const DateContainer = styled.div`
   background-color: white;
@@ -69,15 +72,19 @@ export const DateContainer = styled.div`
   z-index: 22;
 `;
 export const PriceContainer = styled.div`
-  padding-left: 2rem;
+  padding-left: 0;
   background-color: white;
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   max-height: 64px;
   min-width: 250px;
   max-width: 250px;
+  @media (min-width: 900px) {
+    justify-content: flex-start;
+    padding-left: 2rem;
+  }
 `;
 
 export const Search = styled.div`

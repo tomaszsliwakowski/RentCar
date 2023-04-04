@@ -9,14 +9,24 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MainBook from "./book";
+import CarContainer from "../../Home/car/car";
 
 export default function MainContainer() {
+  const [backendData, setBackendData] = useState([{}]);
   const [activeSelect, setActiveSelect] = useState(false);
   const [BookDate, setBookDate] = useState({});
   const [searchCar, setSearchCar] = useState("");
   const [PriceCar, setPriceCar] = useState("Popular");
 
-  const SelectSortPrice = (opt = "Popular") => {
+  useEffect(() => {
+    fetch("/api")
+      .then((response) => response.json())
+      .then((data) => {
+        setBackendData(data);
+      });
+  }, []);
+
+  const SelectSortPrice = (opt) => {
     setPriceCar(opt);
     setActiveSelect(false);
   };
@@ -83,18 +93,22 @@ export default function MainContainer() {
                 </Panel.Option>
                 <Panel.Option onClick={() => SelectSortPrice("Highest")}>
                   <FontAwesomeIcon icon={faDollarSign} />
-                  <Panel.Text>Highest</Panel.Text>
+                  <Panel.Text>Highest price</Panel.Text>
                 </Panel.Option>
                 <Panel.Option onClick={() => SelectSortPrice("Lowest")}>
                   <FontAwesomeIcon icon={faDollarSign} />
-                  <Panel.Text>Lowest</Panel.Text>
+                  <Panel.Text>Lowest price</Panel.Text>
                 </Panel.Option>
               </Panel.Options>
             ) : null}
           </Panel.Select>
         </Panel.PriceContainer>
       </Panel>
-      <Main.Section>CARS</Main.Section>
+      <Main.Section>
+        {backendData.map((item, id) => (
+          <CarContainer key={id} {...item} />
+        ))}
+      </Main.Section>
     </Main>
   );
 }

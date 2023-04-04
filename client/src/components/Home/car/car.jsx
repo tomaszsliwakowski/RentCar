@@ -8,19 +8,12 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function CarContainer(props) {
-  const {
-    name,
-    thumbnailSrc,
-    dailyPrice,
-    monthlyPrice,
-    kilometers,
-    gearType,
-    fuel,
-  } = props;
+  const { name, src, dailyPrice, monthlyPrice, kilometers, gearType, fuel } =
+    props;
   return (
     <Car>
       <Car.Thumbnail>
-        <img src={thumbnailSrc} alt="Car" />
+        <img src={src} alt="Car" />
       </Car.Thumbnail>
       <Car.Name>{name}</Car.Name>
       <Car.Prices>

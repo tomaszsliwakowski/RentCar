@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "module": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
@@ -14,6 +15,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "mongodb": "^5.1.0",
+    "mongoose": "^7.0.3",
     "nodemon": "^2.0.21"
   }
 }

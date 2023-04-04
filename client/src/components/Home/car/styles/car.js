@@ -2,8 +2,8 @@ import styled from "styled-components/macro";
 
 export const CarContainer = styled.div`
   width: 16.5em;
-  min-height: 23em;
-  max-height: 23em;
+  min-height: 23.5em;
+  max-height: 23.5em;
   box-shadow: 0 1.3px 17px -2px rgba(0, 0, 0, 0.4);
   display: flex;
   padding: 0.75rem;
@@ -12,6 +12,7 @@ export const CarContainer = styled.div`
   background-color: #ffffff;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
   border-radius: 0.375rem;
   margin-bottom: 1.5rem;
 
