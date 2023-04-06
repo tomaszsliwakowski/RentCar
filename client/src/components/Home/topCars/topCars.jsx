@@ -20,11 +20,8 @@ export default function TopCarsContainer() {
       });
   }, []);
 
-  const cars = [
-    ...backendData.map((item, id) => <CarContainer key={id} {...item} />),
-  ];
+  const cars = [...backendData.map((item) => <CarContainer {...item} />)];
 
-  console.log(cars);
   const numberOfDots = isMobile
     ? cars.length
     : isMediumSize

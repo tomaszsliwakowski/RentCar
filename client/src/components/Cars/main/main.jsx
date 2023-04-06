@@ -19,16 +19,49 @@ export default function MainContainer() {
   const [PriceCar, setPriceCar] = useState("Popular");
 
   useEffect(() => {
+    getDataFromDatabase();
+  }, []);
+
+  const getDataFromDatabase = () => {
     fetch("/api")
       .then((response) => response.json())
       .then((data) => {
         setBackendData(data);
       });
-  }, []);
+  };
+
+  const clearSearchInput = () => {
+    setSearchCar("");
+  };
+
+  const SearchInputHandler = (e) => {
+    setSearchCar(e.target.value);
+    setPriceCar("Popular");
+    PanelOptSort("Popular");
+  };
+
+  const PanelOptSort = (opt) => {
+    if (searchCar === "" && opt === "Highest") {
+      setBackendData(
+        backendData.sort(function (a, b) {
+          return b.dailyPrice - a.dailyPrice;
+        })
+      );
+    } else if (searchCar === "" && opt === "Lowest") {
+      setBackendData(
+        backendData.sort(function (a, b) {
+          return a.dailyPrice - b.dailyPrice;
+        })
+      );
+    } else if (opt === "Popular") {
+      getDataFromDatabase();
+    }
+  };
 
   const SelectSortPrice = (opt) => {
     setPriceCar(opt);
     setActiveSelect(false);
+    PanelOptSort(opt);
   };
   useEffect(() => {
     const close = (e) => {
@@ -52,12 +85,14 @@ export default function MainContainer() {
               type="text"
               placeholder="Search..."
               value={searchCar}
-              onChange={(e) => setSearchCar(e.target.value)}
+              onChange={(e) => {
+                SearchInputHandler(e);
+              }}
             />
           </Panel.Search>
         </Panel.SearchContainer>
         <Panel.DateContainer>
-          <MainBook setBookDate={setBookDate} />
+          <MainBook setBookDate={setBookDate} activeSelect={activeSelect} />
         </Panel.DateContainer>
         <Panel.PriceContainer>
           <Panel.Select>
@@ -65,6 +100,7 @@ export default function MainContainer() {
               type="checkbox"
               checked={activeSelect}
               onChange={() => setActiveSelect((prev) => !prev)}
+              onClick={() => clearSearchInput()}
             />
             <Panel.SelectBtn>
               <Panel.SelectedValue>
