@@ -29,7 +29,7 @@ export default function MainContainer() {
   };
 
   useEffect(() => {
-    fetch("/api")
+    fetch("https://rentcar-server-tokem.onrender.com/api")
       .then((response) => response.json())
       .then((data) => {
         setBackendData(data);
