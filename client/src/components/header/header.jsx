@@ -13,7 +13,9 @@ export default function HeaderContainer() {
         <Header.Link exact to={ROUTES.Home}>
           Home
         </Header.Link>
-        <Header.Link to={ROUTES.Cars}>Cars</Header.Link>
+        <Header.Link exact to={ROUTES.Cars}>
+          Cars
+        </Header.Link>
         <Header.LinkContact href="#footer">Contact Us</Header.LinkContact>
       </Header.Group>
     </Header>
