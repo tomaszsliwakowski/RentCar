@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy": "https://rentcar-server-tokem.onrender.com/",
   "dependencies": {
     "@brainhubeu/react-carousel": "^2.0.4",
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
