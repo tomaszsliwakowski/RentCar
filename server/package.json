@@ -1,6 +1,5 @@
 {
   "name": "server",
-  "proxy": "https://rentcar-server-tokem.onrender.com",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",

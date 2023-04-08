@@ -23,13 +23,12 @@ export default function MainContainer() {
 
   const override = {
     display: "block",
-    margin: "0 auto",
     borderColor: "red",
     margin: "5rem 0",
   };
 
   useEffect(() => {
-    fetch("/api")
+    fetch("https://rentcar-server-tokem.onrender.com/api")
       .then((response) => response.json())
       .then((data) => {
         setBackendData(data);
