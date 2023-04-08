@@ -25,7 +25,6 @@ export default function TopCarsContainer() {
       mode: "no-cors",
       credentials: "include",
       method: "GET",
-      headers: headers,
     })
       .then((response) => response.json())
       .then((data) => {
