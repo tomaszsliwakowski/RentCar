@@ -3,13 +3,13 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 
-const database = (module.exports = () => {
+const database = (module.exports = async () => {
   const connectionParams = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   };
   try {
-    mongoose.connect(
+    await mongoose.connect(
       "mongodb+srv://RentCarUser:RentCar123@rentcar.hkjn4bn.mongodb.net/RentCar?retryWrites=true&w=majority",
       connectionParams
     );
