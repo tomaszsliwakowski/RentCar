@@ -21,7 +21,12 @@ export default function TopCarsContainer() {
   };
 
   useEffect(() => {
-    fetch("https://rentcar-server-tokem.onrender.com/api")
+    fetch("https://rentcar-server-tokem.onrender.com/api", {
+      mode: "no-cors",
+      credentials: "include",
+      method: "GET",
+      headers: headers,
+    })
       .then((response) => response.json())
       .then((data) => {
         setBackendData(data.splice(0, 4));
