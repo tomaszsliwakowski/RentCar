@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Main, Panel } from "./index";
+import BeatLoader from "react-spinners/BeatLoader";
 import {
   faSearch,
   faDollarSign,
@@ -19,6 +20,13 @@ export default function MainContainer() {
   const [BookDate, setBookDate] = useState({});
   const [searchCar, setSearchCar] = useState("");
   const [PriceCar, setPriceCar] = useState("Popular");
+
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+    margin: "5rem 0",
+  };
 
   useEffect(() => {
     fetch("/api")
@@ -59,12 +67,6 @@ export default function MainContainer() {
 
   const PanelOptSort = () => {
     const backendSort = [...backendData];
-    const date = new Date();
-    const nowDate = {
-      year: date.getFullYear(),
-      month: date.getMonth(),
-      day: date.getDay(),
-    };
     if (searchCar === "" && PriceCar === "Highest") {
       return backendSort.sort(sortPostHighest);
     } else if (searchCar === "" && PriceCar === "Lowest") {
@@ -173,9 +175,18 @@ export default function MainContainer() {
         </Panel.PriceContainer>
       </Panel>
       <Main.Section>
-        {PostShow.map((item, id) => (
-          <CarContainer key={id} {...item} />
-        ))}
+        {PostShow.length > 1 ? (
+          PostShow.map((item, id) => <CarContainer key={id} {...item} />)
+        ) : (
+          <BeatLoader
+            color={"#ef4444"}
+            loading={true}
+            cssOverride={override}
+            size={50}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        )}
       </Main.Section>
     </Main>
   );
