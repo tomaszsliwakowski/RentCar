@@ -8,7 +8,13 @@ import {
 import "react-calendar/dist/Calendar.css";
 import BookCard from "../../Home/bookCard";
 
-export default function MainBook({ setBookDate, activeSelect }) {
+export default function MainBook({
+  setBookDate,
+  activeSelect,
+  BookDate,
+  ClearInputAndOpt,
+  activeDate,
+}) {
   const [startDate, setStartDate] = useState(new Date());
   const [isStartCalendarOpen, setStartCalendarOpen] = useState(false);
   const [returnDate, setReturnDate] = useState(new Date());
@@ -25,12 +31,40 @@ export default function MainBook({ setBookDate, activeSelect }) {
   };
 
   useEffect(() => {
-    if (activeSelect && isStartCalendarOpen === true) {
+    if (
+      (activeSelect && isStartCalendarOpen === true) ||
+      (activeDate && isStartCalendarOpen === true)
+    ) {
       toggleStartDateCalendar();
-    } else if (activeSelect && isReturnCalendarOpen === true) {
+    } else if (
+      (activeSelect && isReturnCalendarOpen === true) ||
+      (activeDate && isReturnCalendarOpen === true)
+    ) {
       toggleReturnDateCalendar();
     }
-  }, [activeSelect]);
+  }, [activeSelect, activeDate]);
+
+  const setDate = (value, action) => {
+    if (action === "start") {
+      setStartDate(value);
+      setBookDate({
+        ...BookDate,
+        [action]: value,
+      });
+    } else if (action === "return") {
+      setReturnDate(value);
+      setBookDate({
+        ...BookDate,
+        [action]: value,
+      });
+    }
+    ClearInputAndOpt();
+  };
+
+  useEffect(() => {
+    setStartDate(BookDate.start);
+    setReturnDate(BookDate.return);
+  }, [BookDate]);
 
   return (
     <>
@@ -45,7 +79,10 @@ export default function MainBook({ setBookDate, activeSelect }) {
           <FontAwesomeIcon icon={isStartCalendarOpen ? faSortUp : faSortDown} />
         </BookCard.SmallIcon>
         {isStartCalendarOpen && (
-          <BookCard.DateCalendar value={startDate} onChange={setStartDate} />
+          <BookCard.DateCalendar
+            value={startDate}
+            onChange={(value) => setDate(value, "start")}
+          />
         )}
       </BookCard.ItemContainer>
       <BookCard.LineSeperator />
@@ -65,7 +102,7 @@ export default function MainBook({ setBookDate, activeSelect }) {
           <BookCard.DateCalendar
             offset
             value={returnDate}
-            onChange={setReturnDate}
+            onChange={(value) => setDate(value, "return")}
           />
         )}
       </BookCard.ItemContainer>

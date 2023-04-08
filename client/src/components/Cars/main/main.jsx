@@ -6,6 +6,7 @@ import {
   faChevronUp,
   faChevronDown,
   faFire,
+  faRepeat,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MainBook from "./book";
@@ -14,47 +15,66 @@ import CarContainer from "../../Home/car/car";
 export default function MainContainer() {
   const [backendData, setBackendData] = useState([{}]);
   const [activeSelect, setActiveSelect] = useState(false);
+  const [activeDate, setActiveDate] = useState(false);
   const [BookDate, setBookDate] = useState({});
   const [searchCar, setSearchCar] = useState("");
   const [PriceCar, setPriceCar] = useState("Popular");
 
   useEffect(() => {
-    getDataFromDatabase();
-  }, []);
-
-  const getDataFromDatabase = () => {
     fetch("/api")
       .then((response) => response.json())
       .then((data) => {
         setBackendData(data);
       });
-  };
+  }, []);
 
   const clearSearchInput = () => {
     setSearchCar("");
+  };
+  const ClearInputAndOpt = () => {
+    setSearchCar("");
+    setPriceCar("Popular");
   };
 
   const SearchInputHandler = (e) => {
     setSearchCar(e.target.value);
     setPriceCar("Popular");
-    PanelOptSort("Popular");
+    ResetDate();
+    setActiveDate((prev) => !prev);
   };
 
-  const PanelOptSort = (opt) => {
-    if (searchCar === "" && opt === "Highest") {
-      setBackendData(
-        backendData.sort(function (a, b) {
-          return b.dailyPrice - a.dailyPrice;
-        })
+  const ResetDate = () => {
+    setBookDate({
+      start: new Date(),
+      return: new Date(),
+    });
+  };
+
+  function sortPostHighest(a, b) {
+    return b.dailyPrice - a.dailyPrice;
+  }
+  function sortPostLowest(a, b) {
+    return a.dailyPrice - b.dailyPrice;
+  }
+
+  const PanelOptSort = () => {
+    const backendSort = [...backendData];
+    const date = new Date();
+    const nowDate = {
+      year: date.getFullYear(),
+      month: date.getMonth(),
+      day: date.getDay(),
+    };
+    if (searchCar === "" && PriceCar === "Highest") {
+      return backendSort.sort(sortPostHighest);
+    } else if (searchCar === "" && PriceCar === "Lowest") {
+      return backendSort.sort(sortPostLowest);
+    } else if (searchCar !== "") {
+      return backendSort.filter((item) =>
+        item.name.toLowerCase().includes(searchCar.toLowerCase())
       );
-    } else if (searchCar === "" && opt === "Lowest") {
-      setBackendData(
-        backendData.sort(function (a, b) {
-          return a.dailyPrice - b.dailyPrice;
-        })
-      );
-    } else if (opt === "Popular") {
-      getDataFromDatabase();
+    } else if (PriceCar === "Popular" && searchCar === "") {
+      return backendData;
     }
   };
 
@@ -62,6 +82,8 @@ export default function MainContainer() {
     setPriceCar(opt);
     setActiveSelect(false);
     PanelOptSort(opt);
+    ResetDate();
+    clearSearchInput();
   };
   useEffect(() => {
     const close = (e) => {
@@ -74,6 +96,8 @@ export default function MainContainer() {
       document.body.removeEventListener("click", close);
     };
   }, []);
+
+  const PostShow = PanelOptSort();
 
   return (
     <Main>
@@ -92,7 +116,16 @@ export default function MainContainer() {
           </Panel.Search>
         </Panel.SearchContainer>
         <Panel.DateContainer>
-          <MainBook setBookDate={setBookDate} activeSelect={activeSelect} />
+          <MainBook
+            setBookDate={setBookDate}
+            activeSelect={activeSelect}
+            BookDate={BookDate}
+            ClearInputAndOpt={ClearInputAndOpt}
+            activeDate={activeDate}
+          />
+          <Panel.DateReset>
+            <FontAwesomeIcon icon={faRepeat} onClick={() => ResetDate()} />
+          </Panel.DateReset>
         </Panel.DateContainer>
         <Panel.PriceContainer>
           <Panel.Select>
@@ -100,7 +133,6 @@ export default function MainContainer() {
               type="checkbox"
               checked={activeSelect}
               onChange={() => setActiveSelect((prev) => !prev)}
-              onClick={() => clearSearchInput()}
             />
             <Panel.SelectBtn>
               <Panel.SelectedValue>
@@ -141,7 +173,7 @@ export default function MainContainer() {
         </Panel.PriceContainer>
       </Panel>
       <Main.Section>
-        {backendData.map((item, id) => (
+        {PostShow.map((item, id) => (
           <CarContainer key={id} {...item} />
         ))}
       </Main.Section>

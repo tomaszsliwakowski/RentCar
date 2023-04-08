@@ -55,13 +55,15 @@ export const SearchContainer = styled.div`
   max-height: 64px;
   min-width: 250px;
   max-width: 300px;
+  @media screen and (min-width: 1000px) {
+    padding: 1rem 0;
+  }
   @media (min-width: 520px) {
     margin-left: 20px;
   }
 `;
 export const DateContainer = styled.div`
   background-color: white;
-  padding: 1.5rem 0;
   width: 50%;
   display: flex;
   justify-content: center;
@@ -70,6 +72,9 @@ export const DateContainer = styled.div`
   min-width: 250px;
   max-width: 300px;
   z-index: 22;
+  @media screen and (min-width: 1000px) {
+    padding: 1rem 0;
+  }
 `;
 export const PriceContainer = styled.div`
   padding-left: 0;
@@ -81,6 +86,9 @@ export const PriceContainer = styled.div`
   max-height: 64px;
   min-width: 250px;
   max-width: 250px;
+  @media screen and (min-width: 1000px) {
+    padding: 1rem 0;
+  }
   @media (min-width: 900px) {
     justify-content: flex-start;
     padding-left: 2rem;
@@ -197,4 +205,10 @@ export const Option = styled.div`
     background-color: silver;
     border-radius: 1rem;
   }
+`;
+
+export const DateReset = styled.p`
+  color: #ef4444;
+  margin-left: 10px;
+  cursor: pointer;
 `;

@@ -16,6 +16,7 @@ import {
   Icon,
   Options,
   Option,
+  DateReset,
 } from "./styles/main";
 
 export function Main({ children }) {
@@ -36,6 +37,9 @@ Panel.SearchContainer = function PanelSearchContainer({ children }) {
 
 Panel.DateContainer = function PanelSearchDateContainer({ children }) {
   return <DateContainer>{children}</DateContainer>;
+};
+Panel.DateReset = function PanelDateReset({ children }) {
+  return <DateReset>{children}</DateReset>;
 };
 
 Panel.PriceContainer = function PanelPriceContainer({
