@@ -24,19 +24,16 @@ const database = (module.exports = async () => {
 
 database();
 
-const CarForRent = app.get(
-  "https://rentcar-server-tokem.onrender.com/api",
-  async (req, res) => {
-    try {
-      const result = await Car.find();
-      res.json(result);
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
+const CarForRent = app.get("/api", async (req, res) => {
+  try {
+    const result = await Car.find();
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
-);
+});
 
-app.listen(5000, () => {
+app.listen(10000, () => {
   console.log("server on");
 });
 
