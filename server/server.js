@@ -36,15 +36,3 @@ const CarForRent = app.get("/api", async (req, res) => {
 app.listen(10000, () => {
   console.log("server on");
 });
-
-//const carObj = new Car({
-// name: "Toyota Corolla",
-//kilometers: "87k",
-// src: "https://w7.pngwing.com/pngs/51/1011/png-transparent-2014-toyota-corolla-car-2016-toyota-corolla-2013-toyota-corolla-sedan-toyota-compact-car-sedan-car-thumbnail.png",
-// dailyPrice: 45,
-// monthlyPrice: 1200,
-// gearType: "Manual",
-//fuel: "Petrol",
-//});
-
-//carObj.save();
