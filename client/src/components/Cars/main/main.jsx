@@ -174,7 +174,7 @@ export default function MainContainer() {
         </Panel.PriceContainer>
       </Panel>
       <Main.Section>
-        {PostShow.length > 1 ? (
+        {PostShow.length >= 1 ? (
           PostShow.map((item, id) => <CarContainer key={id} {...item} />)
         ) : (
           <BeatLoader
